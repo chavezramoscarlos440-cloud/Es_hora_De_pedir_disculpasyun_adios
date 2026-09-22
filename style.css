@@ -1,0 +1,622 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: #49343b;
+
+    background:
+        radial-gradient(circle at 50% 0%,
+            #fff5f7 0%,
+            #f9e4e9 35%,
+            #edcbd3 70%,
+            #ddb4c0 100%);
+
+    overflow-x: hidden;
+    
+}
+
+/* =================================
+FONDO
+================================= */
+
+.fondo-corazones {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.35;
+
+    background-image:
+        radial-gradient(circle,
+            rgba(255, 255, 255, 0.8) 1px,
+            transparent 1px);
+
+    background-size: 35px 35px;
+}
+
+/* =================================
+CORAZONES FLOTANTES
+================================= */
+
+.particulas {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+    
+}
+
+.particulas span {
+    position: absolute;
+
+    bottom: -60px;
+
+    font-size: 20px;
+
+    opacity: 0;
+
+    animation:
+        flotar 12s linear infinite;
+}
+
+.particulas span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.particulas span:nth-child(2) {
+    left: 15%;
+    animation-delay: 3s;
+}
+
+.particulas span:nth-child(3) {
+    left: 28%;
+    animation-delay: 6s;
+}
+
+.particulas span:nth-child(4) {
+    left: 40%;
+    animation-delay: 1s;
+}
+
+.particulas span:nth-child(5) {
+    left: 52%;
+    animation-delay: 5s;
+}
+
+.particulas span:nth-child(6) {
+    left: 64%;
+    animation-delay: 8s;
+}
+
+.particulas span:nth-child(7) {
+    left: 74%;
+    animation-delay: 2s;
+}
+
+.particulas span:nth-child(8) {
+    left: 84%;
+    animation-delay: 7s;
+}
+
+.particulas span:nth-child(9) {
+    left: 92%;
+    animation-delay: 4s;
+}
+
+.particulas span:nth-child(10) {
+    left: 35%;
+    animation-delay: 10s;
+}
+
+@keyframes flotar {
+
+    0% {
+        transform:
+            translateY(0) rotate(0deg) scale(0.8);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh) rotate(360deg) scale(1.3);
+
+        opacity: 0;
+    }
+}
+
+/* =================================
+INICIO
+================================= */
+
+.inicio {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    z-index: 2;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+.contenido-inicio {
+    text-align: center;
+
+    max-width: 600px;
+
+    animation:
+        aparecer 1.3s ease;
+    
+}
+
+.corazon-grande {
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 15px 40px rgba(100, 40, 60, 0.15);
+
+    color: #a94d68;
+
+    font-size: 60px;
+
+    animation:
+        latido 2.2s infinite;
+    
+}
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+.pre-titulo {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8a6871;
+    margin-bottom: 15px;
+}
+
+.inicio h1 {
+    font-size: clamp(55px, 12vw, 90px);
+    font-weight: normal;
+    color: #8f3e58;
+    margin-bottom: 20px;
+    
+}
+
+.descripcion {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #674850;
+    margin-bottom: 35px;
+}
+
+/* =================================
+BOTÓN
+================================= */
+
+.btn-abrir {
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(135deg,
+            #9d4b65,
+            #79364f);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(90, 35, 55, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    
+}
+
+.btn-abrir span {
+    margin-right: 8px;
+}
+
+.btn-abrir:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(90, 35, 55, 0.35);
+    
+}
+
+.btn-abrir:active {
+    transform: scale(0.96);
+}
+
+/* =================================
+CARTA
+================================= */
+
+.carta-seccion {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.carta {
+    position: relative;
+
+    width: min(720px, 100%);
+
+    padding: 65px 65px 60px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 30px 80px rgba(70, 25, 40, 0.20);
+
+    animation:
+        cartaEntrar 1.2s ease;
+
+    overflow: hidden;
+}
+
+.carta::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(150, 75, 95, 0.15);
+    pointer-events: none;
+}
+
+@keyframes cartaEntrar {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(60px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0) scale(1);
+    }
+
+    
+}
+
+/* =================================
+DECORACIÓN
+================================= */
+
+.ornamento {
+    text-align: center;
+    font-size: 45px;
+    color: #b76c81;
+    margin-bottom: 15px;
+}
+
+.fecha {
+    text-align: center;
+    font-size: 13px !important;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9a727d !important;
+
+}
+
+.carta h2 {
+    text-align: center;
+    font-size: clamp(32px, 6vw, 45px);
+    font-weight: normal;
+    color: #73384d;
+    margin: 10px 0 20px;
+    
+}
+
+.linea {
+    width: 80px;
+    height: 1px;
+    margin: 0 auto 35px;
+    background: #c78a9a;
+}
+
+/* =================================
+TEXTO
+================================= */
+
+.carta p {
+    font-size: 17px;
+
+
+    line-height: 1.9;
+    color: #514047;
+    margin-bottom: 23px;
+
+}
+
+.destacado {
+    text-align: center;
+    font-size: 25px !important;
+    font-style: italic;
+    color: #8d4059 !important;
+    margin: 35px 0 !important;
+
+}
+
+.corazon-separador {
+    text-align: center;
+
+    color: #b25772;
+
+    font-size: 25px;
+
+    margin: 35px 0;
+
+}
+
+.disculpa {
+    text-align: center;
+
+    margin: 40px 0;
+
+
+}
+
+.disculpa span {
+    display: block;
+
+
+    font-size: 42px;
+
+    font-style: italic;
+
+    color: #8d4059;
+
+
+}
+
+.disculpa small {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #95717a;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+
+}
+
+.final {
+    text-align: center;
+
+    margin-top: 35px;
+
+}
+
+.final p {
+    font-size: 16px;
+
+    color: #725761;
+
+}
+
+/* =================================
+FIRMA
+================================= */
+
+.firma {
+    text-align: right;
+
+
+    margin-top: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    color: #7d626b;
+
+}
+
+.firma strong {
+    font-size: 23px;
+
+    font-weight: normal;
+
+    color: #843b54;
+
+}
+
+.firma-corazon {
+    font-size: 24px;
+}
+
+/* =================================
+MÚSICA
+================================= */
+
+.btn-musica {
+    position: absolute;
+
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f3dce2;
+
+    color: #8c4057;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+.btn-musica:hover {
+    transform: scale(1.1);
+}
+
+/* =================================
+RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+    .inicio {
+        padding: 20px;
+    }
+
+    .pre-titulo {
+        font-size: 12px;
+
+        letter-spacing: 2px;
+    }
+
+    .descripcion {
+        font-size: 17px;
+    }
+
+    .carta-seccion {
+        padding: 30px 15px;
+    }
+
+    .carta {
+        padding: 50px 28px 55px;
+    }
+
+    .carta p {
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+    .carta h2 {
+        font-size: 32px;
+    }
+
+    .disculpa span {
+        font-size: 35px;
+    }
+
+    .firma {
+        text-align: center;
+    }
+
+}
+
+/* =================================
+ANIMACIÓN GENERAL
+================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
